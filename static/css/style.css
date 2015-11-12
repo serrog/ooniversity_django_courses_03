@@ -3,22 +3,22 @@ body {
 }
 
 h1 {
-  color: black;
+  color: #C8C190;
   text-align: center;
 }
 
 h2 {
-  color: blue;
+  color: #C8C190;
   text-align: center;
 }
 
 h3 {
-  color: red;
+  color: #C8C190;
   text-align: center;
 }
 
 h4 {
-  color: green;
+  color: #C8C190;
 }
 
 span.label.label-default {
@@ -27,12 +27,12 @@ span.label.label-default {
 }
 
 p {
-  color: black;
+  color: #D1DBDB;
   text-align: center;
 }
 
 p#bl {
-  color: blue;
+  color: #D1DBDB;
 }
 
 span {
@@ -49,21 +49,45 @@ div.container {
 
 
 li#learn1 {
-  color: #CD5C5C;
+  color: #D1DBDB;
   text-align: left;
 }
 
 li#learn2 {
-  color: #CD853F;
+  color: #D1DBDB;
   text-align: left;
 }
 
 li#learn3 {
-  color: #D2691E;
+  color: #D1DBDB;
   text-align: left;
 }
 
 li#learn4 {
-  color: #D2B48C;
+  color: #D1DBDB;
   text-align: left;
 }
+
+table {
+  color: #D1DBDB;
+}
+
+th {
+  text-align: center;
+}
+
+caption {
+  font-size: larger;
+  color: #C8C190;
+  text-align: center;
+}
+label {
+  color: #D1DBDB;
+}
+
+tr.tr-sum {
+  font-size: larger;
+  color: red;
+  background-color: rgba(255,255,255,0.5);
+}
+
