@@ -1,3 +1,7 @@
+body {
+  background-attachment: fixed;
+}
+
 h1 {
   color: black;
   text-align: center;
@@ -32,16 +36,17 @@ p#bl {
 }
 
 span {
-  color: red;
+  color: grey;
 }
 
 div.jumbotron {
-  border-width: 0;
+  background: transparent;
 }
 
 div.container {
   text-align: center;
 }
+
 
 li#learn1 {
   color: #CD5C5C;
