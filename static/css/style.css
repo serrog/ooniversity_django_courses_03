@@ -91,3 +91,9 @@ tr.tr-sum {
   background-color: rgba(255,255,255,0.5);
 }
 
+p.result {
+  font-size: larger;
+  color: blue;
+  background-color: rgba(255,255,255,0.5);
+}
+
