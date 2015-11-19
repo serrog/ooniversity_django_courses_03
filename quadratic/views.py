@@ -16,20 +16,19 @@ def quadratic_results(request):
 	b = request.GET['b']
 	c = request.GET['c']
 	cont = {}
+	cont['a'] = "a = %s" % a
+	cont['b'] = "b = %s" % b
+	cont['c'] = "c = %s" % c
+
+	
 	if check_for_error(a) is not None:
 		cont['err_a'] = check_for_error(a)
 	elif int(a) == 0:
 		cont['err_a'] = "коэффициент при первом слагаемом уранения не может быть равным нулю"
-	else:
-		cont['a'] = a
 	if check_for_error(b) is not None:
 		cont['err_b'] = check_for_error(b)
-	else:
-		cont['b'] = b
 	if check_for_error(c) is not None:
 		cont['err_c'] = check_for_error(c)
-	else:
-		cont['c'] = c
 	if not (cont.get('err_a') or cont.get('err_b') or cont.get('err_c')):
 		d = int(b) * int(b) - 4 * int(a) * int(c)
 		cont['d'] = "Дискриминант: %(d)d" % { 'd':d }
