@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 
-def quadratic_results(request, a, b, c):
+def quadratic_results(request):
 	def check_for_error(val):
 		result = None
 		if len(val) == 0:
@@ -12,6 +12,9 @@ def quadratic_results(request, a, b, c):
 			result = "коэффициент не целое число"
 		return result
 
+	a = request.GET['a']
+	b = request.GET['b']
+	c = request.GET['c']
 	cont = {}
 	if check_for_error(a) is not None:
 		cont['err_a'] = check_for_error(a)
