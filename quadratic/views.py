@@ -24,7 +24,7 @@ def quadratic_results(request):
 	if check_for_error(a) is not None:
 		cont['err_a'] = check_for_error(a)
 	elif int(a) == 0:
-		cont['err_a'] = "коэффициент при первом слагаемом уранения не может быть равным нулю"
+		cont['err_a'] = "коэффициент при первом слагаемом уравнения не может быть равным нулю"
 	if check_for_error(b) is not None:
 		cont['err_b'] = check_for_error(b)
 	if check_for_error(c) is not None:
@@ -34,11 +34,11 @@ def quadratic_results(request):
 		cont['d'] = "Дискриминант: %(d)d" % { 'd':d }
 		if d == 0:
 			x = -int(b) / (2.0 * int(a))
-			cont['result'] = "Дискриминант равен нулю, квадратное уравнение один действительный корень: x1 = x2 = %(x).1f" % {'x' : x}
+			cont['result'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %(x).1f" % {'x' : x}
 		elif d > 0:
 			x1 = (-int(b) + d ** (1 / 2.0)) / (2.0 * int(a))
 			x2 = (-int(b) - d ** (1 / 2.0)) / (2.0 * int(a))
-			cont['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %(x1).1f,  x2 = %(x2).1f" % {'x1':x1, 'x2':x2 }
+			cont['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %(x1).1f, x2 = %(x2).1f" % {'x1':x1, 'x2':x2 }
 		else:
 			cont['result'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
 	return render(request, 'results.html', cont)
