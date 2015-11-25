@@ -40,7 +40,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'contact' %}">Контакты</a></li>
             <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
           </ul>
@@ -52,28 +52,37 @@
     </nav>
 
     <div class="container">
-      <div class='col-md-2'></div>
-      <div class="jumbotron col-md-8">
+      <div class='col-md-1'></div>
+      <div class="jumbotron col-md-10">
         
         <div class="container">
-          <h2>Ooniversity</h2>
-          <p>Ooniversity is an education company. But not one in the way you might think. We're committed to building the best learning experience inside and out, making Ooniversity the best place for our team to learn, teach, and create the learning experience of the future.</p>
-        </div>
-        <div class="container">
-          <h3>Join our courses!</h3>
+          <h2>Student's list</h2>
         </div>
         <div class="container">
           <table class="table">
             <tr>
+              <th>#</th>
               <th>Name</th>
-              <th>Description</th>
+              <th>Address</th>
+              <th>Skype</th>
+              <th>Courses</th>
             </tr>
-            {% if all_courses %}
-              {% for course in all_courses %}
-                <tr>
-                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-                  <td>{{ course.short_description }}</td>
-                </tr>
+            {% if students %}
+              {% for student in students %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>
+                        <a href="{% url 'students:detail' student.id %}">{{ student.surname }} {{ student.name }}</a>
+                      </td>
+                      <td>{{ student.address }}</td>
+                      <td>{{ student.skype }}</td>
+                      <td>
+                        {% for course in student.courses.all %}
+                          <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a>
+                          </br>
+                        {% endfor %}
+                      </td>
+                    </tr>
               {% endfor %}
             {% endif %}
           </table>

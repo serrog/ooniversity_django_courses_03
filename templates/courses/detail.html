@@ -20,7 +20,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  {% load staticfiles %}
   <body background="{% static 'images/Student_back.jpg' %}">
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -40,9 +39,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">Главная</a></li>
+            <li><a href="{% url 'index' %}">Главная</a></li>
             <li><a href="{% url 'contact' %}">Контакты</a></li>
-            <li><a href="{% url 'students:list_view' %}">Студенты</a></li>
+            <li><a href="{% url 'students:list_view' %}?course_id={{ course.id }}">Студенты</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><h4>Версия <span class="label label-default">3</span></h4></li>
@@ -56,23 +55,25 @@
       <div class="jumbotron col-md-8">
         
         <div class="container">
-          <h2>Ooniversity</h2>
-          <p>Ooniversity is an education company. But not one in the way you might think. We're committed to building the best learning experience inside and out, making Ooniversity the best place for our team to learn, teach, and create the learning experience of the future.</p>
+          <h2>{{ course.name }}</h2>
+          <p>{{ course.description }}</p>
         </div>
         <div class="container">
-          <h3>Join our courses!</h3>
+          <h3>Lessons</h3>
         </div>
         <div class="container">
           <table class="table">
             <tr>
-              <th>Name</th>
+              <th>#</th>
+              <th>Subject</th>
               <th>Description</th>
             </tr>
-            {% if all_courses %}
-              {% for course in all_courses %}
+            {% if lessons %}
+              {% for lesson in lessons %}
                 <tr>
-                  <td><a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></td>
-                  <td>{{ course.short_description }}</td>
+                  <td>{{ lesson.order }}</td>
+                  <td>{{ lesson.subject }}</td>
+                  <td>{{ lesson.description }}</td>
                 </tr>
               {% endfor %}
             {% endif %}
