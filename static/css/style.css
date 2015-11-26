@@ -39,12 +39,20 @@ span {
   color: grey;
 }
 
+span.red {
+  color: red;
+}
+
 div.jumbotron {
   background: transparent;
 }
 
 div.container {
   text-align: center;
+}
+
+div.bgr {
+  background-color: rgba(255,255,255,0.5);
 }
 
 
