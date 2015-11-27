@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Coach(models.Model):
-    GENDERS = (('M', 'Mail'), ('F', 'Femail'),)
+    GENDERS = (('M', 'Male'), ('F', 'Female'),)
     user = models.OneToOneField(User)
     date_of_birth = models.DateField()
     gender = models.CharField(max_length=1, choices=GENDERS)
