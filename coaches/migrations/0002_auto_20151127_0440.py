@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='coach',
             name='gender',
             field=models.CharField(max_length=1, choices=[(b'M', b'Male'), (b'F', b'Female')]),
-            preserve_default=True,
         ),
     ]
