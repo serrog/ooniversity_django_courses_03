@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from quadratic import forms
 
 def quadratic_results(request):
@@ -27,5 +27,7 @@ def quadratic_results(request):
                 cont['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %(x1).1f, x2 = %(x2).1f" % {'x1':x1, 'x2':x2 }
             else:
                 cont['result'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений." 
+        else: 
+            cont['result'] = "коэффициент не целое число"
         cont['form'] = form
     return render(request, 'results.html', cont)
