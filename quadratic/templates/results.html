@@ -59,22 +59,10 @@
           <div class="container">
             <h2>Quadratic equation</h2>
           </div>
-          <div class="container">
-            <ul>
-              <li class="q">{{ a }}</li>
-              {% if err_a %}
-                <p class="alert">{{ err_a }}</p>
-              {% endif %}
-              <li class="q">{{ b }}</li>
-              {% if err_b %}
-                <p class="alert">{{ err_b }}</p>
-              {% endif %}
-              <li class="q">{{ c }}</li>
-              {% if err_b %}
-                <p class="alert">{{ err_c }}</p>
-              {% endif %}
-            </ul> 
-          </div>
+          <form>
+            {{ form.as_p }}
+            <input type="submit" value="Решить" />
+          </form>
           
           {% if d %}
           	<div class="container">
