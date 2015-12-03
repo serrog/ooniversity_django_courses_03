@@ -4,7 +4,9 @@
 
 {% block nav_class_students %}active{% endblock %}
 
-{% block content %}<div class="container">
+{% block content %}<div class="container"><a href="{% url 'students:add' %}">Добавить нового студента</a>
+        </div>
+        <div class="container">
           <h2>Student's list</h2>
         </div>
         <div class="container">
@@ -35,6 +37,6 @@
               {% endfor %}
             {% endif %}
           </table>
-        </div>{% include "students/include/footer.html" %}{% endblock content %}
+        </div>{% include "students/include/student_include.html" %}{% endblock content %}
 
         
