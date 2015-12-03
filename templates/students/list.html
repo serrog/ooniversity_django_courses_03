@@ -4,7 +4,17 @@
 
 {% block nav_class_students %}active{% endblock nav_class_students %}
 
-{% block content %}<div class="container"><a href="{% url 'students:add' %}">Добавить нового студента</a>
+{% block content %}<div class="container">
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="container">
+          <a href="{% url 'students:add' %}">Добавить нового студента</a>
         </div>
         <div class="container">
           <h2>Student's list</h2>
@@ -17,6 +27,8 @@
               <th>Address</th>
               <th>Skype</th>
               <th>Courses</th>
+              <th></th>
+              <th></th>
             </tr>
             {% if students %}
               {% for student in students %}
@@ -33,6 +45,8 @@
                           </br>
                         {% endfor %}
                       </td>
+                      <td><a class="btn btn-default" href="{% url 'students:edit' student.id %}">Изменить</a></td>
+                      <td><a class="btn btn-danger" href="{% url 'students:remove' student.id %}">Удалить</a></td>
                     </tr>
               {% endfor %}
             {% endif %}

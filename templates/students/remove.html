@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Ooniversity-Student remove{% endblock title %}
+
+{% block content %}<div class="container">
+          <h2>Student {{ student }} will be deleted</h2>
+        </div>
+        <div class="container">
+          <form class="form-horizontal" method="post">
+              {% csrf_token %}
+              <input type="submit", value="Удалить">
+          </form>
+        </div>{% endblock content %}

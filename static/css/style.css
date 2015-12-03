@@ -149,3 +149,16 @@ code {
   font-size: 80%;
 }
 
+form > p {
+  text-align: left;
+}
+
+form > p > input {
+  color: black;
+}
+
+form > p > select {
+  color: black;
+}
+
+

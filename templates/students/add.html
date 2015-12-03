@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Ooniversity-Student create{% endblock title %}
+
+{% block content %}<div class="container">
+          <h2>Create new student</h2>
+        </div>
+        <div class="container">
+          <form class="form-horizontal" method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <input type="submit", value="Создать">
+          </form>
+        </div>{% endblock content %}
