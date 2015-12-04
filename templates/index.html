@@ -5,6 +5,18 @@
 {% block nav_class_index %}active{% endblock nav_class_index %}
         
 {% block content %}<div class="container">
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="container">
+          <a href="{% url 'courses:add' %}">Добавить новый курс</a>
+        </div>
+        <div class="container">
           <h2>Ooniversity</h2>
           <p>Ooniversity is an education company. But not one in the way you might think. We're committed to building the best learning experience inside and out, making Ooniversity the best place for our team to learn, teach, and create the learning experience of the future.</p>
         </div>
@@ -16,12 +28,16 @@
             <tr>
               <th>Name</th>
               <th>Description</th>
+              <th></th>
+              <th></th>
             </tr>
             {% if all_courses %}
               {% for course in all_courses %}
                 <tr>
                   <td><a href="{% url 'courses:detail' course.id %}">{{ course.name|upper }}</a></td>
                   <td>{{ course.short_description|title }}</td>
+                  <td><a class="btn btn-default" href="{% url 'courses:edit' course.id %}">Изменить</a></td>
+                  <td><a class="btn btn-danger" href="{% url 'courses:remove' course.id %}">Удалить</a></td>
                 </tr>
               {% endfor %}
             {% endif %}
