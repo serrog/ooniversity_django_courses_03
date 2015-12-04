@@ -6,7 +6,7 @@
           <h2>Create new student</h2>
         </div>
         <div class="container">
-          <form class="form-horizontal" method="post">
+          <form method="post">
               {% csrf_token %}
               {{ form.as_p }}
               <input type="submit", value="Создать">
