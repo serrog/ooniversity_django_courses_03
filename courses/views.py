@@ -15,7 +15,7 @@ def add(request):
         form = CourseModelForm(request.POST)
         if form.is_valid():
             course = form.save()
-            name = form.cleaned_data['name']
+            name = course.name
             message = 'Course %(name)s has been successfully added.' % {'name': name} 
             messages.success(request, message)
             return redirect("index")
@@ -30,7 +30,7 @@ def edit(request, course_id):
         if form.is_valid():
             course = form.save()
             messages.success(request, "The changes have been saved.")
-            return redirect("courses:detail", course.id)
+            return redirect("courses:edit", course.id)
     else:
         form = CourseModelForm(instance=course)
     return render(request, 'courses/edit.html', {'form':form})
