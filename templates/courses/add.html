@@ -7,8 +7,9 @@
         </div>
         <div class="container">
           <form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <input type="submit", value="Создать">
+          {{ title }}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit", value="Создать">
           </form>
         </div>{% endblock content %}

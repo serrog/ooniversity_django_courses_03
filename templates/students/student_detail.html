@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Ooniversity-Student detail{% endblock title %}
+
+{% block content %}<div class="container">
+          <h2>{{ object.name }} {{ object.surname }}</h2>
+        </div>
+        <div class="container">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="birth_date" class="col-sm-2 control-label">Birth Date</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="birth_date" placeholder="{{ object.date_of_birth }}">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address" class="col-sm-2 control-label">Address</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="address" placeholder="{{ object.address }}" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="address" class="col-sm-2 control-label">E-mail</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="address" placeholder="{{ object.email }}" readonly>
+              </div>
+            </div>
+             <div class="form-group">
+              <label for="skype" class="col-sm-2 control-label">Skype</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="skype" placeholder="{{ object.skype }}" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="surname" class="col-sm-2 control-label">Phone</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="surname" placeholder="{{ object.phone }}" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Courses</label>
+                <div class="col-sm-10">
+                  {% for course in object.courses.all %}
+                    <a href="{% url 'courses:detail' course.id %}">{{ course.name }}</a></br>
+                  {% endfor %}
+                </div>
+            </div>
+          </form>
+        </div>{% include "include/student_include.html" %}{% endblock content %}
+
+        

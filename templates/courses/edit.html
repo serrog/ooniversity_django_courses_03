@@ -16,8 +16,9 @@
         </div>
         <div class="container">
           <form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <input type="submit", value="Изменить">
+            {{ title }}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit", value="Изменить">
           </form>
         </div>{% endblock content %}

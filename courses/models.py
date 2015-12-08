@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 from coaches.models import Coach
 
 class Course(models.Model):
@@ -19,3 +20,6 @@ class Lesson(models.Model):
 
     def __unicode__(self):
         return self.subject
+
+    def get_absolute_url(self):
+        return reverse('courses:detail', args=[str(self.course.id)])

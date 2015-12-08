@@ -1,7 +1,15 @@
 from django.shortcuts import render
+from django.views.generic.detail import DetailView 
 from coaches.models import Coach
 
-def detail(request, coach_id):
-    coach = Coach.objects.get(pk=coach_id)
-    context = {'coach': coach}
-    return render(request, 'coaches/detail.html', context)
+
+class MixinCoachTitle(object):
+    def get_context_data(self, **kwargs):
+        context = super(MixinCoachTitle, self).get_context_data(**kwargs)
+        context['title'] = "About coach"
+        return context
+
+
+class CoachDetailView(MixinCoachTitle, DetailView):
+    model = Coach
+    template_name = "coaches/detail.html"

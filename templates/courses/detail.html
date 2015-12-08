@@ -39,8 +39,8 @@
               <th>Subject</th>
               <th>Description</th>
             </tr>
-            {% if lessons %}
-              {% for lesson in lessons %}
+            {% if course %}
+              {% for lesson in course.lesson_set.all %}
                 <tr>
                   <td>{{ lesson.order }}</td>
                   <td>{{ lesson.subject }}</td>
