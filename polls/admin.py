@@ -1,7 +1,7 @@
 from django.contrib import admin
 from polls.models import Question, Choice
 
-class ChoiceInline(admin.TabularInline):
+class ChoiceInline(admin.TabularInLine):
 	model = Choice
 	extra = 3
 
