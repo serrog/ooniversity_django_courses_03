@@ -13,3 +13,4 @@ class MixinCoachTitle(object):
 class CoachDetailView(MixinCoachTitle, DetailView):
     model = Coach
     template_name = "coaches/detail.html"
+

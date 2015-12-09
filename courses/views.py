@@ -70,26 +70,21 @@ class CourseDeleteView(DeleteView):
     context_object_name = 'course'
 
 
-class LessonCreateView(CreateView):
+class MixinLessonMessage(object):
+    def form_valid(self, form):
+        name = form.cleaned_data['subject']
+        message = 'Lesson %(name)s has been successfully added.' % {'name': name} 
+        messages.success(self.request, message)
+        return super(MixinLessonMessage, self).form_valid(form)
+
+
+class LessonCreateView(MixinLessonMessage, CreateView):
     def get_initial(self):
         course_id = self.kwargs['pk']
         course = Course.objects.get(pk=course_id)
         return {'course': course.id}    
 
+    
+
     model = Lesson
     template_name = 'courses/add_lesson.html'
-
-
-def add_lesson(request, course_id):
-    course = Course.objects.get(id=course_id)
-    if request.method == "POST":
-        form = LessonModelForm(request.POST)
-        if form.is_valid():
-            lesson = form.save()
-            name = lesson.subject
-            message = "Lesson %(name)s has been successfully added." % {'name': name}
-            messages.success(request, message)
-            return redirect("courses:detail", course.id)
-    else:
-        form = LessonModelForm(initial={'course': course_id})
-    return render(request, "courses/add_lesson.html", {'form': form})
