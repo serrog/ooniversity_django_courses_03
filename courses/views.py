@@ -12,7 +12,7 @@ from courses.forms import CourseModelForm, LessonModelForm
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/detail.html'
-    context_object_name = 'course'
+    context_object_name = 'course_detail'
 
 
 class CourseCreateView(CreateView):
