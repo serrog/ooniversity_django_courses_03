@@ -89,3 +89,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+
+ADMINS = ['admin@pybursa.com', 'director@pybursa.com', 'manager@pybursa.com']

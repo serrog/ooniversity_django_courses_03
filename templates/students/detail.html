@@ -2,6 +2,8 @@
 
 {% block title %}Ooniversity-Student detail{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}<div class="container">
           <h2>{{ student.name }} {{ student.surname }}</h2>
         </div>

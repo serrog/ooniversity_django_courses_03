@@ -2,6 +2,8 @@
 
 {% block title %}Ooniversity-Course{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}?course_id={{ course_detail.id }}{% endblock student_ref %}
+
 {% block content %}<div class="container">
           {% if messages %}
             <ul class="messages">

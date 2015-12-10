@@ -4,6 +4,8 @@
 
 {% block nav_class_students %}active{% endblock nav_class_students %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}<div class="container">
           {% if messages %}
             <ul class="messages">

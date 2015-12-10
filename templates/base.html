@@ -42,7 +42,7 @@
           <ul class="nav navbar-nav">
             <li class="{% block nav_class_index %}{% endblock nav_class_index %}"><a href="{% url 'index' %}">Главная</a></li>
             <li class="{% block nav_class_contacts %}{% endblock nav_class_contacts %}"><a href="{% url 'contact' %}">Контакты</a></li>
-            <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% url 'students:list_view' %}">Студенты</a></li>
+            <li class="{% block nav_class_students %}{% endblock nav_class_students %}"><a href="{% block student_ref %}{% endblock student_ref %}">Студенты</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><h4>Версия <span class="label label-default">4</span></h4></li>

@@ -2,6 +2,8 @@
 
 {% block title %}Ooniversity-Coach{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}<div class="container">
           {{ title }}
           <h2>{{ coach.user.get_full_name }}</h2>

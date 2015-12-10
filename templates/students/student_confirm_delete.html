@@ -2,6 +2,8 @@
 
 {% block title %}Ooniversity-Student remove{% endblock title %}
 
+{% block student_ref %}{% url 'students:list_view' %}{% endblock student_ref %}
+
 {% block content %}<div class="container">
           <h2>Student {{ object.name }} {{ object.surname }} will be deleted</h2>
         </div>
