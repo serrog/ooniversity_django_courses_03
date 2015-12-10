@@ -76,3 +76,4 @@ class StudentListView(ListView):
         return qs
 
     model = Student
+    paginate_by = 2
