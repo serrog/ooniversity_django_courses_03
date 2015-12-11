@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from django.db import models
 
 class Feedback(models.Model):
@@ -6,4 +6,4 @@ class Feedback(models.Model):
     subject = models.CharField(max_length=255)
     message = models.TextField()
     from_email = models.EmailField()
-    create_date = models.DateField(default=datetime.datetime.now())
+    create_date = models.DateTimeField(default=datetime.now())
