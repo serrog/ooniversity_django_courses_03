@@ -98,3 +98,39 @@ ADMINS = (
     ('Director', 'director@pybursa.com'), 
     ('Manager', 'manager@pybursa.com'),
 )
+
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'student': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(funcName)s %(message)s'
+        },
+        'course': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'file_course': {
+            'level': 'DEBUG', 
+            'class': 'logging.FileHandler', 
+            'filename': os.path.join(BASE_DIR, 'courses_logger.log'),
+            'formatter': 'course'
+        },
+        'file_student': {
+            'level': 'WARNING', 
+            'class': 'logging.FileHandler', 
+            'filename': os.path.join(BASE_DIR, 'students_logger.log'),
+            'formatter': 'student'
+        },
+    },
+    'loggers': {
+        'courses': {
+            'handlers': ['file_course'],
+            'level': 'DEBUG',
+        },
+        'students': {
+            'handlers': ['file_student'],
+            'level': 'WARNING',
+        },
+    },
+}

@@ -9,6 +9,8 @@ from students.models import Student
 from courses.models import Course
 from students.forms import StudentModelForm
 
+import logging
+logger = logging.getLogger(__name__)
 
 class StudentDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
@@ -64,6 +66,14 @@ class StudentUpdateView(UpdateView):
 
 
 class StudentDetailView(DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(StudentDetailView, self).get_context_data(**kwargs)
+        logger.debug("Students detail view has been debugged")
+        logger.info("Logger of students detail view informs you!")
+        logger.warning("Logger of students detail view warns you!")
+        logger.error("Students detail view went wrong!")
+        return context
+        
     model = Student
 
 
