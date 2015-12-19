@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^students/', include('students.urls', namespace="students")),
     url(r'^coaches/', include('coaches.urls', namespace="coaches")),
     url(r'^feedback/$', FeedbackView.as_view(), name='feedback'),
+    url(r'^posting/$', views.posting, name='posting'),
 )
