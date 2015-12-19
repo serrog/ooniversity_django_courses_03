@@ -134,3 +134,13 @@ LOGGING = {
         },
     },
 }
+
+try:
+    from local_settings import * 
+except ImportError:
+    print “Warning! local_settings are not defined!”
+
+try:
+    from do_settings import * 
+except ImportError:
+    print “Warning! do_settings are not defined!”
